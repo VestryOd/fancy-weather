@@ -11,10 +11,10 @@
   position: relative;
   z-index: 2;
   @include media-tablet {
-    max-width: 45%;
+    max-width: calc(100% - 30px);
   }
   @include media-mobile {
-    max-width: calc(100% - 30px);
+    max-width: 100%;
     width: 100%;
     justify-content: center;
   }

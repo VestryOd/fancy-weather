@@ -10,12 +10,12 @@
   & > * {
     max-width: 33.333%;
     width: 100%;
-    @include media-mobile {
+    @include media-tablet {
       max-width: none;
     }
   }
   @extend %box-shadow-bold;
-  @include media-mobile {
+  @include media-tablet {
     flex-direction: column;
   }
 }

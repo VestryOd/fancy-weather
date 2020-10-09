@@ -109,7 +109,7 @@
   & .info-details-text {
     letter-spacing: 1.5px;
     border-right: 1px solid $color-light;
-    @include media-mobile {
+    @include media-tablet {
       border-right: none;
       padding: 0 0 10px 0;
       text-align: center;
@@ -118,8 +118,12 @@
       border-right: none;
     }
   }
-  @include media-mobile {
+  @include media-tablet {
+    width: calc(100% - 80px);
     flex-direction: column;
+    border-top: 1px solid $color-light;
+    padding: 20px;
+    margin: 0 auto;
   }
 }
 
@@ -145,18 +149,21 @@
   line-height: 160px;
   font-weight: 700;
   @extend %text_shadow;
-  @include media-mobile {
-    font-size: 9em;
+  @include media-tablet {
+    font-size: 7em;
   }
 }
 
 .description {
-  width: 100%;
+  width: calc(100% - 20px);
   text-align: center;
   & p {
     padding: 0 0 20px 0;
     font-size: 2.4em;
     font-weight: 300;
     text-transform: capitalize;
+    @include media-tablet {
+      font-size: 2em;
+    }
   }
 }

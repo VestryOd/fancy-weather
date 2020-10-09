@@ -41,7 +41,6 @@ class Today extends Component {
 
   handleTick = () => {
     const { timezone } = this.props;
-    // console.log(this.state);
     const date = new Date(
       new Date().toLocaleString('en-US', { timeZone: timezone }),
     );
@@ -55,7 +54,7 @@ class Today extends Component {
     const todayTemp = checkTemperature(today?.temp, units);
     const todayWeatherIcon = icons[today?.weather?.icon];
     const wind = Math.round(today?.wind_spd);
-    const humidity = Math.round(today.rh);
+    const humidity = Math.round(today?.rh);
     const feelsTemp = checkTemperature(((today?.app_min_temp + today?.app_max_temp) / 2), units);
     const forecastTreeDays = [forecast[1], forecast[2], forecast[3]];
     const { code } = today?.weather;

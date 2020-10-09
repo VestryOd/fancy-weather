@@ -38,6 +38,9 @@
   & p {
     width: 100%;
     font-size: 2.4em;
+    @include media-tablet {
+      font-size: 4em;
+    }
   }
 }
 

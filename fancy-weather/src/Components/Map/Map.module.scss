@@ -20,7 +20,7 @@
   background-color: $color-medium-gray-opacity;
   @extend %box-shadow-bold;
   & > * {
-    width: 100%;
+    width: calc(100% - 30px);
   }
 }
 
@@ -43,8 +43,8 @@
   -webkit-mask-position: center right;
   -webkit-mask-clip: padding-box;
   @extend %box-shadow-bold;
-  @include media-mobilesmall {
-    width: 300px;
+  @include media-mobile {
+    width: 290px;
     height: 300px;
   }
 }

@@ -18,7 +18,7 @@
     color: $color-light;
     @extend %text_shadow;
     @include media-mobile {
-      font-size: 1.2em;
+      font-size: 0.9em;
     }
   }
   @include media-mobile {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import ErrorBoundary from './Components/ErrorBoundary';
-import defaultBackgraunds from './common/defaultBackgraunds';
 import Loader from './Components/Loader';
 import Header from './Components/Header';
 import Today from './Components/Today';
@@ -17,7 +16,6 @@ import {
   getCurrentLocation,
   getWeatherByAddress,
   getWeatherByCoords,
-  getSeason,
   prepareInfo,
   getGeolocation,
 } from './common/services';
@@ -103,7 +101,7 @@ export default class App extends Component {
         this.setState({ errorMessage: noResults[lang] });
         this.handleError();
       } else {
-        const info = prepareInfo({ background, weather, geo });
+        const info = await prepareInfo({ background, weather, geo });
         this.setState({ ...info });
       }
     } catch (error) {
@@ -176,7 +174,7 @@ export default class App extends Component {
           </div>
           <div
             className={classNames(style.background, { [style.hide] : isLoading })}
-            style={{ backgroundImage: `url(${backgroundUrl || defaultBackgraunds[getSeason().toLowerCase()]})` }}
+            style={{ backgroundImage: `url(${backgroundUrl})` }}
           />
           <Modal>
             <ErrorModal

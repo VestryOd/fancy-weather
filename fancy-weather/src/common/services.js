@@ -1,6 +1,7 @@
 import moment from 'moment';
 import axios from 'axios';
 import { unsplashUrl, weatherUrl, geocodingUrl } from './constants';
+import defaultBackgraunds from './defaultBackgraunds';
 
 export const getSeason = () => {
   const d = new Date();
@@ -139,10 +140,24 @@ export const getGeolocation = async (place, lang) => {
   }
 };
 
-export const prepareInfo = (fetchedData) => {
+export const preparePicture = async (path) => {
+  let img;
+
+  await fetch(path)
+    .then(response => response.blob())
+    .then(image => {
+        img = URL.createObjectURL(image);
+    })
+    .catch(() => {
+      img = defaultBackgraunds[getSeason().toLowerCase()];
+    });
+    return img;
+};
+
+export const prepareInfo = async (fetchedData) => {
   const { background, weather, geo } = fetchedData;
   const result = {};
-  result.backgroundUrl = background.value;
+  result.backgroundUrl = await preparePicture(background.value);
   result.forecast = weather.value.data.slice(0, 4);
   result.timezone = weather.value.timezone;
   const { value } = geo;
