@@ -65,7 +65,7 @@
   & > * {
     color: $color-light;
   }
-  @include media-mobile {
+  @include media-tablet {
     flex-direction: column;
   }
 }
@@ -76,7 +76,7 @@
   align-items: center;
   flex-direction: column;
   width: 60%;
-  @include media-mobile {
+  @include media-tablet {
     width: 100%;
   }
 }
@@ -97,7 +97,7 @@
       height: auto;
     }
   }
-  @include media-mobile {
+  @include media-tablet {
     width: 100%;
   }
 }
@@ -150,6 +150,9 @@
   font-weight: 700;
   @extend %text_shadow;
   @include media-tablet {
+    font-size: 8em;
+  }
+  @include media-mobile {
     font-size: 7em;
   }
 }
@@ -163,6 +166,9 @@
     font-weight: 300;
     text-transform: capitalize;
     @include media-tablet {
+      font-size: 2.2em;
+    }
+    @include media-mobile {
       font-size: 2em;
     }
   }
